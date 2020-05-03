@@ -3,16 +3,6 @@ language: cpp
 
 matrix:
   include:
-    - os: osx
-      compiler: clang
-
-    - os: linux
-      dist: bionic
-      compiler: gcc
-      env:
-        - COMPILER=g++
-        - GCOV=gcov
-
     - os: linux
       dist: xenial
       compiler: clang

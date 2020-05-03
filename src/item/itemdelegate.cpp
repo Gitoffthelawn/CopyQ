@@ -35,6 +35,8 @@
 #include <QPainter>
 #include <QVBoxLayout>
 
+#include <QDebug>
+
 #include <algorithm>
 
 namespace {
@@ -87,8 +89,10 @@ bool ItemDelegate::eventFilter(QObject *obj, QEvent *event)
         Q_ASSERT(row != -1);
 
         const auto index = m_view->model()->index(row, 0);
-        if ( index.isValid() )
+        if ( index.isValid() ) {
+            qDebug() << "Size changed for row" << row;
             emit sizeHintChanged(index);
+        }
     }
 
     return QItemDelegate::eventFilter(obj, event);

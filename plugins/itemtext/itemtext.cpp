@@ -35,6 +35,7 @@
 #include <QTextCursor>
 #include <QTextDocument>
 #include <QtPlugin>
+#include <QDebug>
 
 namespace {
 
@@ -233,6 +234,7 @@ void ItemText::updateSize(QSize maximumSize, int idealWidth)
 
     const QSizeF size = m_textDocument.size();
     const int h = size.height() + 1;
+    qDebug() << "Detected height" << h << "for" << this;
 
     if (0 < m_maximumHeight && m_maximumHeight < h - 8)
         setFixedHeight(m_maximumHeight);
